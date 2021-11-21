@@ -2,7 +2,11 @@
         border:0px;
         border-bottom:1px solid black;
         box-shadow:none !important;
+        border-radius: 0.1px;
 }
 input:focus .input:active{
     box-shadow: none;
+}
+.noborder{
+    border:0px;
 }

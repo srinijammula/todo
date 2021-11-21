@@ -1,5 +1,7 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
 import CreateTask from '../modals/createTask';
+import Card from './Card';
+import './todolist.css'
 
 function Todolist() {
     const [modal, setModal] = useState(false);
@@ -12,19 +14,19 @@ function Todolist() {
     const saveTask = (taskObj) => {
         let tempList = taskList
         tempList.push(taskObj)
-        setTaskList(taskList)
+        setTaskList(tempList)
         setModal(false)
     }
 
     return (
         <div>
-            <div className = "text-center">
-                <button className = "btn btn-primary mt-2" onClick = {() => setModal(true)} >Create Task</button>
-            </div>
             <div className = "task-container">
-            {taskList.map((obj) => <li>{obj.Name}</li> )}
+            {taskList.map((obj,index) => <Card index={index} taskList={obj}/> )}
             </div>
             <CreateTask toggle = {toggle} modal = {modal} save = {saveTask}/>
+            <div className = "text-center mb-5 footer fixed-bottom">
+                <button className = "btn btn-lg btn-primary mt-2 rounded-circle" onClick = {() => setModal(true)}><i class="fas fa-plus"></i></button>
+            </div>
         </div>
     )
 }
