@@ -1,0 +1,8 @@
+.inputmod{
+        border:0px;
+        border-bottom:1px solid black;
+        box-shadow:none !important;
+}
+input:focus .input:active{
+    box-shadow: none;
+}
